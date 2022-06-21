@@ -1,0 +1,94 @@
+package com.stefanot.t4grupalproyecto02;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link FragmentSuma#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class FragmentSuma extends Fragment {
+
+    View vista;
+
+    EditText txtN1, txtN2;
+    TextView lblRespuesta;
+    Button btnCalcular;
+
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private static final String ARG_PARAM1 = "param1";
+    private static final String ARG_PARAM2 = "param2";
+
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+
+    public FragmentSuma() {
+        // Required empty public constructor
+    }
+
+    // TODO: Rename and change types and number of parameters
+    public static FragmentSuma newInstance(String txtN1, String txtN2) {
+        FragmentSuma fragment = new FragmentSuma();
+        Bundle args = new Bundle();
+        args.putString(ARG_PARAM1, txtN1);
+        args.putString(ARG_PARAM2, txtN2);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            mParam1 = getArguments().getString(ARG_PARAM1);
+            mParam2 = getArguments().getString(ARG_PARAM2);
+        }
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        vista=inflater.inflate(R.layout.fragment_suma, container, false);
+        asignarReferencias();
+        return vista;
+    }
+    private void asignarReferencias(){
+        btnCalcular=vista.findViewById(R.id.btnCalcular);
+        lblRespuesta=vista.findViewById(R.id.lblRespuesta);
+        txtN1=vista.findViewById(R.id.txtN1);
+        txtN2=vista.findViewById(R.id.txtN2);
+        btnCalcular.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean valida=true;
+                int n1,n2,res;
+                if(txtN1.getText().toString().equals("")){
+                    txtN1.setError("Obligatorio");
+                    valida=false;
+                }
+                if(txtN2.getText().toString().equals("")){
+                    txtN2.setError("Obligatorio");
+                    valida=false;
+                }
+                if(valida) {
+                    n1 = Integer.parseInt(txtN1.getText().toString());
+                    n2 = Integer.parseInt(txtN2.getText().toString());
+                    res=n1+n2;
+                    lblRespuesta.setText(res+"");
+                }
+
+            }
+        });
+    }
+}
