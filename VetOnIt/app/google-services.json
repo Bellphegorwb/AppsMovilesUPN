@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "277452102749",
+    "firebase_url": "https://vetonit-354818-default-rtdb.firebaseio.com",
+    "project_id": "vetonit-354818",
+    "storage_bucket": "vetonit-354818.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:277452102749:android:2d192437f719875e4801b4",
+        "android_client_info": {
+          "package_name": "com.stefanot.vetonit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "277452102749-uddsn00c650963sgu4oaqi8hikq4qfkd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.stefanot.vetonit",
+            "certificate_hash": "b2f742f10f0dadf47ae3030137f6e2a742353cab"
+          }
+        },
+        {
+          "client_id": "277452102749-fl879up2btklij759e6up95tej8cnhhn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8tlzOHiTBiTXr7ySDG3f7jJNlLfpiKuU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "277452102749-fl879up2btklij759e6up95tej8cnhhn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:state_enabled="true" android:state_focused="true">
+<bitmap android:src="@drawable/selected_box" android:gravity="fill"/>
+</item>
+
+<item android:state_enabled="true">
+    <bitmap android:src="@drawable/unselected_box" android:gravity="fill"/>
+</item>
+</selector>
