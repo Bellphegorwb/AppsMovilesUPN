@@ -9,12 +9,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.stefanot.vetonit.entidad.Cita;
 import com.stefanot.vetonit.modelo.DAOCita;
 
@@ -25,7 +28,7 @@ public class Home extends AppCompatActivity {
 
     RecyclerView rvCitas;
     FloatingActionButton btnNuevo;
-    ImageButton btnSedes;
+    ImageButton btnSedes,btnLogoOut;
 
     List<Cita> listaCita = new ArrayList<>();
     AdaptadorPersonalizado adaptadorPersonalizado;
@@ -33,21 +36,29 @@ public class Home extends AppCompatActivity {
     DAOCita daoLibro=new DAOCita(Home.this);
     int elimiminar=-1;
 
+    MediaPlayer clic1;
+    MediaPlayer salir;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         asignarReferencias();
         mostarCita();
+        clic1 =MediaPlayer.create(this, R.raw.clic2);
+        salir =MediaPlayer.create(this, R.raw.salir);
     }
     private void asignarReferencias() {
         rvCitas = findViewById(R.id.rvCitas);
         btnNuevo = findViewById(R.id.btnNuevo);
         btnSedes=findViewById(R.id.btnSedes);
+        btnLogoOut = findViewById(R.id.btnLogout);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         btnNuevo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Home.this, MantenimientoCitas.class);
+                salir.start();
                 startActivity(intent);
             }
         });
@@ -55,9 +66,34 @@ public class Home extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Home.this, SedesActivity.class);
+                salir.start();
                 startActivity(intent);
             }
         });
+
+        btnLogoOut.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder ventana= new AlertDialog.Builder(Home.this);
+                ventana.setTitle("Mensaje informativo");
+                ventana.setMessage("Desea cerrar sesión?");
+                ventana.setNegativeButton("Cancelar",null);
+                ventana.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        FirebaseAuth.getInstance().signOut();
+                        Intent intent = new Intent(Home.this, MainActivity.class);
+                        salir.start();
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+                ventana.create().show();
+            }
+        });
+
+
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
             @Override
@@ -79,8 +115,10 @@ public class Home extends AppCompatActivity {
                 mySnackbar.setAction("Deshacer", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        clic1.start();
                         elimiminar=0;
                         listaCita.add(pos,delCita);
+                        daoLibro.registrarCita(delCita);
                         adaptadorPersonalizado.notifyDataSetChanged();
                     }
                 });

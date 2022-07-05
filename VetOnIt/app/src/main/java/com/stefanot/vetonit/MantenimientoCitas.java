@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
@@ -37,6 +38,8 @@ public class MantenimientoCitas extends AppCompatActivity {
     Animation const_anim;
     int id;
 
+    MediaPlayer gatito1, check;
+
     boolean registra=true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,8 @@ public class MantenimientoCitas extends AppCompatActivity {
         asignarReferencias();
         verficarModificar();
         seleccionarHora();
+        gatito1 =MediaPlayer.create(this, R.raw.gatito1);
+        check =MediaPlayer.create(this, R.raw.check);
     }
 
     private void asignarReferencias() {
@@ -78,6 +83,7 @@ public class MantenimientoCitas extends AppCompatActivity {
                     ventana.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            gatito1.start();
                             Intent intent = new Intent(MantenimientoCitas.this, Home.class);
                             startActivity(intent);
                         }
@@ -90,6 +96,7 @@ public class MantenimientoCitas extends AppCompatActivity {
         txtFecha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                check.start();
                 showDatePickerDialog();
             }
         });
@@ -207,6 +214,7 @@ public class MantenimientoCitas extends AppCompatActivity {
         txtHora.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                check.start();
                 showTimePickerDialog();
             }
         });

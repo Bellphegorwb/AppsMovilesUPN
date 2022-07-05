@@ -10,29 +10,36 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_marginTop="10dp">
+
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:src="@drawable/vetonit_icon"/>
+                android:src="@drawable/vetonit_icon" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="30dp">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Bienvenido(a)"
                 android:gravity="center"
-                android:textSize="30sp"
-                android:textColor="@color/white"/>
+                android:text="Bienvenido(a)"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
         </LinearLayout>
 
         <TextView
@@ -50,7 +57,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/blanco_transparente"
             android:drawableLeft="@drawable/icon_user"
-            android:hint="correo"
+            android:hint="Ingrese correo"
             android:inputType="textPersonName"
             android:paddingLeft="10dp"
             android:textSize="20sp" />
@@ -58,43 +65,46 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="30dp"
+            android:layout_marginTop="25dp"
             android:text="Ingrese su clave:"
-            android:textSize="20sp"
             android:textColor="@color/white"
-            android:layout_marginTop="25dp"/>
+            android:textSize="20sp" />
+
         <EditText
             android:id="@+id/txtClave"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:paddingLeft="10dp"
-            android:hint="clave"
-            android:textSize="20sp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/blanco_transparente"
             android:drawableLeft="@drawable/icon_key"
             android:drawablePadding="5dp"
-            android:layout_marginTop="10dp"
-            android:inputType="textPassword"/>
+            android:hint="Ingrese clave"
+            android:inputType="textPassword"
+            android:paddingLeft="10dp"
+            android:textSize="20sp" />
+
         <Button
             android:id="@+id/btnIniciarSesion"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:text="INICIAR SESION"
-            android:gravity="center"
             android:layout_marginTop="35dp"
             android:background="@drawable/fondo_boton"
+            android:gravity="center"
+            android:text="INICIAR SESION"
             android:textColor="@color/white"
-            android:textSize="20dp"/>
+            android:textSize="20dp" />
+
         <Button
             android:id="@+id/btnRegistrate"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="#00FDFDFD"
+            android:gravity="center"
             android:text="Registrate"
             android:textAllCaps="false"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="#00FFFFFF"
             android:textColor="@color/white"
-            android:textSize="20dp"/>
+            android:textSize="20dp" />
 
 
     </LinearLayout>

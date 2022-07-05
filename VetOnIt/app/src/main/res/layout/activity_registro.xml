@@ -37,28 +37,7 @@
             android:layout_marginTop="10dp"
             android:background="@drawable/blanco_transparente"
             android:drawableLeft="@drawable/icon_mail"
-            android:hint=" correo"
-            android:paddingLeft="10dp"
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginTop="25dp"
-            android:text="Ingrese su nombre:"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/txtNombre"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/blanco_transparente"
-            android:drawableLeft="@drawable/icon_user"
-            android:drawablePadding="5dp"
-            android:hint="nombre"
-            android:inputType="textPassword"
+            android:hint=" Ingrese correo"
             android:paddingLeft="10dp"
             android:textSize="20sp" />
 
@@ -69,12 +48,33 @@
             android:text="Ingrese su clave:"
             android:textColor="@color/white"
             android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/txtPass"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/blanco_transparente"
+            android:drawableLeft="@drawable/icon_key"
+            android:drawablePadding="5dp"
+            android:hint="Ingrese clave"
+            android:inputType="textPassword"
+            android:paddingLeft="10dp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="25dp"
+            android:text="Ingrese su clave nuevamente:"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
         <EditText
             android:id="@+id/txtClave"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:paddingLeft="10dp"
-            android:hint="clave"
+            android:hint="Ingrese clave nuevamente"
             android:textSize="20sp"
             android:background="@drawable/blanco_transparente"
             android:drawableLeft="@drawable/icon_key"
@@ -90,17 +90,6 @@
             android:gravity="center"
             android:layout_marginTop="35dp"
             android:background="@drawable/fondo_boton"
-            android:textColor="@color/white"
-            android:textSize="20dp"/>
-        <Button
-            android:id="@+id/btnVolverIniciarSesion"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:text="Iniciar sesión"
-            android:textAllCaps="false"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:background="#00FFFFFF"
             android:textColor="@color/white"
             android:textSize="20dp"/>
 

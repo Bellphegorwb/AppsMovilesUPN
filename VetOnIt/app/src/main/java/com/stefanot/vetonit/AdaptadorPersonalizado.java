@@ -65,7 +65,7 @@ public class AdaptadorPersonalizado extends RecyclerView.Adapter<AdaptadorPerson
             public void onClick(View v) {
                 AlertDialog.Builder ventana= new AlertDialog.Builder(context);
                 ventana.setTitle("Confirmar eliminar");
-                ventana.setMessage("Desea eliminar la cita para"+listaCita.get(position).getNombre()+"");
+                ventana.setMessage("Desea eliminar la cita para "+listaCita.get(position).getNombre()+"?");
                 ventana.setNegativeButton("No",null);
                 ventana.setPositiveButton("Sí", new DialogInterface.OnClickListener() {
                     @Override
